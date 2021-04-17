@@ -1,5 +1,5 @@
 from mattermostdriver import Driver
-from jarbas_utils.log import LOG
+from ovos_utils.log import LOG
 import logging
 import json
 
