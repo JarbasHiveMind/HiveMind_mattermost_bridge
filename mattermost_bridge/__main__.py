@@ -1,29 +1,73 @@
-from mattermost_bridge import JarbasMattermostBridge, platform
-from jarbas_hive_mind import HiveMindConnection
+"""CLI entry point — asyncio main with signal-driven shutdown."""
+from __future__ import annotations
+
+import asyncio
+import signal
+from typing import Tuple
+
+import click
+from hivemind_bus_client.identity import NodeIdentity
+from ovos_utils.log import LOG
+
+from mattermost_bridge import HiveMindMattermostBridge
+
+LOG.set_level("DEBUG")
 
 
-def connect_mattermost_to_hivemind(mail, pswd, url, tags=None,
-                                   host="127.0.0.1",
-                                   crypto_key=None,
-                                   port=5678, name="JarbasMattermostBridge",
-                                   key="unsafe", useragent=platform):
-    con = HiveMindConnection(host, port)
+async def _amain(mail: str, pswd: str, mmurl: str, tags: Tuple[str, ...],
+                 key: str, password: str, host: str, port: int) -> None:
+    identity = NodeIdentity()
+    password = password or identity.password
+    key = key or identity.access_key
+    host = host or identity.default_master
 
-    terminal = JarbasMattermostBridge(mail=mail,
-                                      pswd=pswd,
-                                      url=url,
-                                      tags=tags,
-                                      crypto_key=crypto_key,
-                                      headers=con.get_headers(name, key),
-                                      useragent=useragent)
+    if host and not host.startswith("ws://") and not host.startswith("wss://"):
+        host = "ws://" + host
 
-    con.secure_connect(terminal)
+    if not key or not password or not host:
+        raise RuntimeError(
+            "NodeIdentity not set, please pass key/password/host or "
+            "call 'hivemind-client set-identity'"
+        )
+
+    bridge = HiveMindMattermostBridge(
+        mail=mail, pswd=pswd, url=mmurl, tags=list(tags),
+        key=key, password=password, host=host, port=port,
+    )
+
+    stop_event = asyncio.Event()
+    loop = asyncio.get_running_loop()
+    for sig in (signal.SIGINT, signal.SIGTERM):
+        try:
+            loop.add_signal_handler(sig, stop_event.set)
+        except NotImplementedError:
+            pass
+
+    await bridge.start()
+    try:
+        await stop_event.wait()
+    except (KeyboardInterrupt, asyncio.CancelledError):
+        pass
+    finally:
+        await bridge.stop()
 
 
-if __name__ == '__main__':
-    # TODO argparse
-    url = "chat.mycroft.ai"
-    mail = "xxx"
-    pswd = "xxx"
-    tags = ["@bot"]
-    connect_mattermost_to_hivemind(mail, pswd, url, tags)
+@click.command()
+@click.option("--mail", required=True, help="Mattermost bot account email")
+@click.option("--pswd", "--password-mm", "pswd", required=True,
+              help="Mattermost bot account password")
+@click.option("--mmurl", required=True, help="Mattermost server URL (host part, no scheme)")
+@click.option("--tag", "tags", multiple=True, default=["@bot"],
+              help="Tags that trigger the bot (repeatable). Default: @bot")
+@click.option("--key", default="", help="HiveMind access key (default: from identity file)")
+@click.option("--password", default="", help="HiveMind password (default: from identity file)")
+@click.option("--host", default="", help="HiveMind host (default: from identity file)")
+@click.option("--port", default=5678, type=int, help="HiveMind port (default: 5678)")
+def launch_bot(mail: str, pswd: str, mmurl: str, tags: Tuple[str, ...],
+               key: str, password: str, host: str, port: int) -> None:
+    """Run the HiveMind <-> Mattermost bridge."""
+    asyncio.run(_amain(mail, pswd, mmurl, tags, key, password, host, port))
+
+
+if __name__ == "__main__":
+    launch_bot()
