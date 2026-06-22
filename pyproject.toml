@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "HiveMind-mattermost-bridge"
+description = "Bridge a Mattermost bot account to a HiveMind node"
+readme = "readme.md"
+authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
+license = { text = "Apache-2.0" }
+requires-python = ">=3.10"
+dynamic = ["version", "dependencies"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge"
+
+[project.scripts]
+hivemind-mattermost-bridge = "mattermost_bridge.__main__:main"
+
+[tool.setuptools]
+packages = ["mattermost_bridge"]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "mattermost_bridge.version.__version__" }
+dependencies = { file = ["requirements.txt"] }

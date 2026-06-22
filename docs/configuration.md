@@ -1,27 +1,27 @@
 # Configuration & Credentials Reference
 
-The bridge needs Mattermost bot credentials and a HiveMind access key. Both are passed as arguments to `connect_mattermost_to_hivemind(...)` in `mattermost_bridge/__main__.py`.
+The bridge needs Mattermost bot credentials and a HiveMind access key, passed as flags to the `hivemind-mattermost-bridge` console script (HiveMind identity flags fall back to `hivemind-client set-identity`).
 
 ## Mattermost credentials
 
-| Parameter | Meaning |
+| Flag | Meaning |
 | --- | --- |
-| `mail` | The bot account's login (email). |
-| `pswd` | The bot account's password. |
-| `url` | The Mattermost server host, without a scheme (for example `chat.example.com`). The driver connects over HTTPS on port 443. |
-| `tags` | List of trigger tags. A channel post containing any tag is treated as a mention; the tag is stripped before forwarding. Default `["@bot"]`. |
+| `--mail` | The bot account's login (email). |
+| `--pswd` | The bot account's password. |
+| `--url` | The Mattermost server host, without a scheme (for example `chat.example.com`). The driver connects over HTTPS on port 443. |
+| `--tag` | Trigger tag (repeatable). A channel post containing any tag is treated as a mention; the tag is stripped before forwarding. Default `@bot`. |
 
 Direct messages to the bot are always forwarded regardless of tags.
 
 ## HiveMind credentials
 
-| Parameter | Meaning | Default |
+| Flag | Meaning | Default |
 | --- | --- | --- |
-| `host` | HiveMind hub host. | `127.0.0.1` |
-| `port` | HiveMind hub port. | `5678` |
-| `key` | HiveMind access key from `hivemind-core add-client`. | `unsafe` |
-| `crypto_key` | Optional pre-shared payload crypto key. | `None` |
-| `name` | Terminal name reported to the hub. | `JarbasMattermostBridge` |
+| `--host` | HiveMind hub host (e.g. `ws://127.0.0.1`). | from identity file |
+| `--port` | HiveMind hub port. | `5678` |
+| `--key` | HiveMind access key from `hivemind-core add-client`. | from identity file |
+| `--password` | HiveMind password. | from identity file |
+| `--self-signed` | Accept self-signed SSL certificates. | off |
 
 ## Reply routing
 
