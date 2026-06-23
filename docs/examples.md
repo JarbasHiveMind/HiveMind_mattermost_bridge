@@ -2,26 +2,30 @@
 
 ## Run the bridge
 
-Configure the call at the bottom of `mattermost_bridge/__main__.py`:
+```bash
+hivemind-mattermost-bridge \
+  --mail bot@example.com --pswd bot-password \
+  --url chat.example.com --tag @bot --tag @assistant \
+  --host ws://127.0.0.1 --port 5678 \
+  --key your-access-key --password your-hivemind-password
+```
+
+To embed the bridge in your own code:
 
 ```python
-from mattermost_bridge.__main__ import connect_mattermost_to_hivemind
+from mattermost_bridge import HiveMindMattermostBridge
 
-connect_mattermost_to_hivemind(
+bridge = HiveMindMattermostBridge(
     mail="bot@example.com",
     pswd="bot-password",
     url="chat.example.com",
     tags=["@bot", "@assistant"],
-    host="127.0.0.1",
+    host="ws://127.0.0.1",
     port=5678,
     key="your-access-key",
+    password="your-hivemind-password",
 )
-```
-
-Then start it:
-
-```bash
-python -m mattermost_bridge
+bridge.start()
 ```
 
 ## A conversation

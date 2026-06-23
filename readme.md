@@ -15,19 +15,19 @@ Mattermost channel  ⇄  HiveMind_mattermost_bridge  ⇄  HiveMind hub  ⇄  OVO
 
 - A running **HiveMind hub** ([hivemind-core](https://github.com/JarbasHiveMind/HiveMind-core)) reachable over the network, and a **HiveMind access key** for this bridge (`hivemind-core add-client`).
 - A **Mattermost server** and a **bot user account** on it (an email/login and password the bridge logs in with). The bot must be a member of the channels it should answer in.
-- Python 3.8+.
+- Python 3.10+.
 
 ## Install
-
-This branch has no published package. Install the runtime dependencies and run from a checkout:
 
 ```bash
 git clone https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge
 cd HiveMind_mattermost_bridge
-pip install -r requirements.txt
+pip install .
 ```
 
-Dependencies: `mattermostdriver`, `jarbas_hive_mind>=0.8`, `ovos_utils`.
+This installs the `hivemind-mattermost-bridge` console script.
+
+Dependencies: `hivemind-bus-client`, `mattermostdriver`, `ovos-utils`, `ovos-bus-client`.
 
 ## Quickstart
 
@@ -38,29 +38,23 @@ hivemind-core add-client --name mattermost-bridge \
   --access-key "your-access-key" --password "your-password"
 ```
 
-**2. Configure the bridge.** The entry point is `connect_mattermost_to_hivemind(...)` in `mattermost_bridge/__main__.py`. Edit the call at the bottom of that file with your Mattermost login and hub details:
-
-```python
-from mattermost_bridge.__main__ import connect_mattermost_to_hivemind
-
-connect_mattermost_to_hivemind(
-    mail="bot@example.com",        # Mattermost bot login
-    pswd="bot-password",           # Mattermost bot password
-    url="chat.example.com",        # Mattermost server host (no scheme)
-    tags=["@bot"],                 # trigger tags
-    host="127.0.0.1",              # HiveMind hub host
-    port=5678,                     # HiveMind hub port
-    key="your-access-key",         # HiveMind access key
-)
-```
-
-**3. Run it:**
+**2. Run the bridge.** Pass Mattermost credentials and HiveMind identity as flags (HiveMind key/password/host default to the values stored by `hivemind-client set-identity`):
 
 ```bash
-python -m mattermost_bridge
+hivemind-mattermost-bridge \
+  --mail bot@example.com \
+  --pswd bot-password \
+  --url chat.example.com \
+  --tag @bot \
+  --host ws://127.0.0.1 \
+  --port 5678 \
+  --key your-access-key \
+  --password your-hivemind-password
 ```
 
-**4. Send a message.** In a channel the bot is in, mention it:
+Or run as a module: `python -m mattermost_bridge --help`.
+
+**3. Send a message.** In a channel the bot is in, mention it:
 
 ```
 @bot what time is it?
@@ -70,18 +64,20 @@ The bridge forwards the message to the hub and posts the hub's reply back to the
 
 ## Configuration
 
-`connect_mattermost_to_hivemind(...)` parameters:
+CLI flags (`hivemind-mattermost-bridge --help`):
 
-| Parameter | Description | Default |
+| Flag | Description | Default |
 | --- | --- | --- |
-| `mail` | Mattermost bot account login (email) | — |
-| `pswd` | Mattermost bot account password | — |
-| `url` | Mattermost server host (no scheme) | — |
-| `tags` | Trigger tags; messages containing one are forwarded | `["@bot"]` |
-| `host` | HiveMind hub host | `127.0.0.1` |
-| `port` | HiveMind hub port | `5678` |
-| `key` | HiveMind access key | `unsafe` |
-| `crypto_key` | Optional HiveMind payload crypto key | `None` |
+| `--mail` | Mattermost bot account login (email) | — |
+| `--pswd` | Mattermost bot account password | — |
+| `--url` | Mattermost server host (no scheme) | — |
+| `--tag` | Trigger tag; messages containing one are forwarded (repeatable) | `@bot` |
+| `--host` | HiveMind hub host (e.g. `ws://127.0.0.1`) | from identity file |
+| `--port` | HiveMind hub port | `5678` |
+| `--key` | HiveMind access key | from identity file |
+| `--password` | HiveMind password | from identity file |
+| `--self-signed` | Accept self-signed SSL certificates | off |
+| `--lang` | Utterance language | `en-us` |
 
 ## Troubleshooting
 
@@ -91,4 +87,6 @@ The bridge forwards the message to the hub and posts the hub's reply back to the
 
 ## Documentation
 
-See [`docs/`](docs/) for a full setup walkthrough, a configuration reference, and worked examples.
+- **[Operator setup](docs/operator-setup.md)** — getting the bot's Mattermost account (or self-hosting `mattermost-preview`), registering the bridge on a HiveMind hub, the run command, and live e2e.
+
+See also [`docs/`](docs/) for a full setup walkthrough, a configuration reference, and worked examples.

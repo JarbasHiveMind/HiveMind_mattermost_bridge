@@ -48,16 +48,21 @@ Keep the access key. List clients with `hivemind-core list-clients`.
 ```bash
 git clone https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge
 cd HiveMind_mattermost_bridge
-pip install -r requirements.txt
+pip install .
 ```
 
-## Step 5 — Configure and run
+## Step 5 — Run
 
-Edit the call to `connect_mattermost_to_hivemind(...)` at the bottom of `mattermost_bridge/__main__.py` with your Mattermost login (`mail`, `pswd`, `url`), trigger `tags`, and HiveMind `host`/`port`/`key`. Then:
+Pass your Mattermost login (`--mail`, `--pswd`, `--url`), trigger `--tag`, and HiveMind `--host`/`--port`/`--key`/`--password` as flags:
 
 ```bash
-python -m mattermost_bridge
+hivemind-mattermost-bridge --mail bot@example.com --pswd bot-password \
+  --url chat.example.com --tag @bot \
+  --host ws://127.0.0.1 --port 5678 \
+  --key your-access-key --password your-hivemind-password
 ```
+
+HiveMind identity flags default to the values stored by `hivemind-client set-identity`.
 
 ## Step 6 — Talk to it
 
