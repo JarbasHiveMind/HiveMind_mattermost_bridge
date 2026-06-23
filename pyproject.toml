@@ -13,6 +13,16 @@ dynamic = ["version", "dependencies"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+# REAL HiveMind-side end-to-end deps (tests/e2e). hivescope boots a real
+# hivemind-core loopback hub the bridge drives over a real HiveMessageBusClient.
+# Pinned to the whitelist-only-connection branch until that fix lands in a
+# hivescope release; the hivemind-core/hivescope stack is alpha, so installs
+# must allow prereleases (UV_PRERELEASE=allow / pip --pre). The e2e CI job
+# passes --pre for exactly this reason.
+e2e = [
+    "pytest",
+    "hivescope @ git+https://github.com/JarbasHiveMind/hivescope.git@fix/loopback-whitelist-only-connection",
+]
 
 [project.urls]
 Homepage = "https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge"

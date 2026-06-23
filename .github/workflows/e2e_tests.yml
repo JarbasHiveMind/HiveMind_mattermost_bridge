@@ -1,0 +1,50 @@
+name: E2E Tests
+# REAL HiveMind-side end-to-end tests (tests/e2e).
+#
+# Boots a real hivemind-core loopback hub (via hivescope) and drives the real
+# bridge over a real HiveMessageBusClient; only the Mattermost transport is
+# mocked. The hivemind-core/hivescope stack is alpha-only and hivescope is
+# pulled from a git branch (fix/loopback-whitelist-only-connection) via the
+# package's `e2e` extra, so installs MUST allow prereleases (--pre). This is
+# why this suite runs in its own job rather than the shared build-tests
+# workflow (which installs without --pre).
+#
+# FOLLOW-UP: a FULL Mattermost loop (containerized mattermost-preview + a real
+# bot token, with MMostBot.listen() actually connected) is the next step and is
+# out of scope for this job.
+on:
+  pull_request:
+    branches: [dev, master]
+  workflow_dispatch:
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install System Dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -yq python3-dev libssl-dev
+
+      - name: Install package with e2e extra (prereleases allowed)
+        run: |
+          python -m pip install --upgrade pip
+          # --pre: the hivemind-core/hivescope stack is alpha; the e2e extra
+          # pins hivescope to the whitelist-only-connection branch.
+          pip install --pre -e ".[e2e]"
+
+      - name: Run e2e tests
+        run: |
+          python -m pytest tests/e2e/ -v
