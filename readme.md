@@ -87,4 +87,6 @@ CLI flags (`hivemind-mattermost-bridge --help`):
 
 ## Documentation
 
-See [`docs/`](docs/) for a full setup walkthrough, a configuration reference, and worked examples.
+- **[Operator setup](docs/operator-setup.md)** — getting the bot's Mattermost account (or self-hosting `mattermost-preview`), registering the bridge on a HiveMind hub, the run command, and live e2e.
+
+See also [`docs/`](docs/) for a full setup walkthrough, a configuration reference, and worked examples.
