@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.0a3) (2026-06-25)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.0a2...0.2.0a3)
+
+**Merged pull requests:**
+
+- ci\(e2e\): run HiveMind e2e via shared build-tests workflow [\#12](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/12) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.0a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.0a2) (2026-06-23)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/ae8beefa114d0a793086d1a53b3dbcba89138814...0.2.0a2)
