@@ -35,6 +35,12 @@ from mattermost_bridge.mmost import MMostBot
 
 platform = "HiveMindMattermostBridgeV0.2"
 
+# hivemind-bus-client >= 1.0.13a1 makes HiveMessageBusClient.connect()
+# block on the handshake; handshake_max_retries=None (the client's own
+# default) retries forever. Bound it here so a stalled/unreachable hub
+# (down, wrong password) fails fast instead of hanging the bridge.
+DEFAULT_HANDSHAKE_MAX_RETRIES = 10
+
 
 class HiveMindMattermostBridge:
     """Bridge Mattermost direct-messages/mentions to a HiveMind node."""
@@ -50,10 +56,12 @@ class HiveMindMattermostBridge:
                  port: int = 5678,
                  self_signed: bool = False,
                  lang: str = "en-us",
+                 handshake_max_retries: int = DEFAULT_HANDSHAKE_MAX_RETRIES,
                  *,
                  client: Optional[HiveMessageBusClient] = None,
                  bot: Optional[MMostBot] = None):
         self.lang = lang
+        self.handshake_max_retries = handshake_max_retries
         self.bot = bot or MMostBot(mail, pswd, url, tags=tags)
         self.bot.handle_mention = self.handle_mmost_message
         self.bot.handle_direct_message = self.handle_mmost_message
@@ -79,7 +87,8 @@ class HiveMindMattermostBridge:
         """Connect to HiveMind and start listening to Mattermost."""
         if self._started:
             return
-        self.client.connect(site_id="mattermost")
+        self.client.connect(site_id="mattermost",
+                            handshake_max_retries=self.handshake_max_retries)
         self.client.on_mycroft("speak", self.handle_speak)
         self.client.on_mycroft("hive.complete_intent_failure",
                                self.handle_intent_failure)

@@ -197,7 +197,9 @@ def test_round_trip_mattermost_to_hivemind_and_back():
             # connect() handshakes + wires the speak handler. We avoid
             # bridge.start()'s blocking MMostBot.listen() daemon (we inject the
             # inbound event by hand) but exercise the real connect path:
-            client.connect(site_id="mattermost")
+            from mattermost_bridge import DEFAULT_HANDSHAKE_MAX_RETRIES
+            client.connect(site_id="mattermost",
+                           handshake_max_retries=DEFAULT_HANDSHAKE_MAX_RETRIES)
             client.wait_for_handshake(timeout=15)
             assert client.handshake_event.is_set(), "handshake did not complete"
             client.on_mycroft("speak", bridge.handle_speak)
