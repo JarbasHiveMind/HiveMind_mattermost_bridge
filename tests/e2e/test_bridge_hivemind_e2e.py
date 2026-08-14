@@ -163,7 +163,9 @@ def test_round_trip_mattermost_to_hivemind_and_back():
     from mattermost_bridge.mmost import MMostBot
 
     key = "mm-bridge-key"
-    password = "mm-bridge-password"
+    # poorman-handshake >=2.0.0a1 gates the symmetric handshake on password
+    # entropy (>=40 bits); this must stay comfortably above that floor.
+    password = "correct-horse-battery-staple-9f3a1c7e2b8d4055-mm"
     reply_text = "the weather is sunny"
 
     # --- real hub: loopback hivemind-core + responding agent ---
