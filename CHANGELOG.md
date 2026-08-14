@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.1a1) (2026-08-14)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.0a3...0.2.1a1)
+
+**Merged pull requests:**
+
+- fix: strengthen e2e handshake password for poorman-handshake 2.0.0a2 [\#19](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/19) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.0a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.0a3) (2026-06-25)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.0a2...0.2.0a3)
