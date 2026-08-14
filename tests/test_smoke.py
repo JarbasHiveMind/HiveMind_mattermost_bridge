@@ -62,6 +62,32 @@ def test_inbound_message_forwarded_to_hivemind():
     assert payload.context["user"]["mattermost_username"] == "alice"
 
 
+def test_start_bounds_handshake_retries():
+    """start() must pass a bounded (non-None) handshake_max_retries.
+
+    hivemind-bus-client >= 1.0.13a1 blocks in connect() on the handshake;
+    handshake_max_retries=None (the client's own default) retries forever.
+    A stalled/unreachable hub must not hang the bridge.
+    """
+    from mattermost_bridge import HiveMindMattermostBridge, \
+        DEFAULT_HANDSHAKE_MAX_RETRIES
+    from mattermost_bridge.mmost import MMostBot
+
+    fake_client = MagicMock(name="HiveMessageBusClient")
+    bot = MMostBot("bot@example.com", "secret", "chat.example.com",
+                   tags=["@bot"])
+    bot.listen = MagicMock(name="listen")  # avoid the real blocking loop
+
+    bridge = HiveMindMattermostBridge(bot=bot, client=fake_client)
+    bridge.start()
+
+    fake_client.connect.assert_called_once()
+    _, kwargs = fake_client.connect.call_args
+    assert "handshake_max_retries" in kwargs
+    assert kwargs["handshake_max_retries"] is not None
+    assert kwargs["handshake_max_retries"] == DEFAULT_HANDSHAKE_MAX_RETRIES
+
+
 def test_speak_routes_back_to_mattermost():
     """A HiveMind speak message is delivered to the right channel/user."""
     from ovos_bus_client.message import Message
