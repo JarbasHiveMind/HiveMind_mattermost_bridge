@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a1) (2026-08-14)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.1a1...0.2.2a1)
+
+**Merged pull requests:**
+
+- fix: bound handshake retries on connect so a stalled hub fails fast [\#18](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.1a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.1a1) (2026-08-14)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.0a3...0.2.1a1)
