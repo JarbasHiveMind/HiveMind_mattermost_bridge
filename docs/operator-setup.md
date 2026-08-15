@@ -59,6 +59,13 @@ WebSocket port `5678`). The bridge connects as a HiveMind *satellite* with these
 You can pass them as flags (below) or store them once with
 `hivemind-client set-identity` and omit the flags.
 
+A freshly registered client is denied every message type by default. Whitelist it now, or the bridge connects and never replies:
+
+```bash
+hivemind-core allow-msg recognizer_loop:utterance mattermost-bridge
+hivemind-core allow-msg speak mattermost-bridge
+```
+
 ## 4. Install and run the bridge
 
 ```bash
