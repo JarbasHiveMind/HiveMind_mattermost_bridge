@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.2a4](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a4) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a2...0.2.2a4)
+
+**Merged pull requests:**
+
+- ci: test, build and publish the container image [\#17](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+- fix: raise hivemind-bus-client floor to \>=1.0.13a1, drop \<1.0.0 cap [\#16](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/16) ([JarbasAl](https://github.com/JarbasAl))
+- Add Dockerfile [\#15](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/15) ([JarbasAl](https://github.com/JarbasAl))
+- docs: make the hub allow-msg whitelist step explicit [\#14](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.2a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a2) (2026-08-15)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a1...0.2.2a2)
