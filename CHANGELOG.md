@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.2.2a6](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a6) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a5...0.2.2a6)
+
+**Merged pull requests:**
+
+- Update docker/login-action action to v4 [\#29](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/29) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/build-push-action action to v7 [\#28](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/28) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.2a5](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a5) (2026-08-15)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a4...0.2.2a5)
