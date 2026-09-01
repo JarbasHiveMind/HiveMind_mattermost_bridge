@@ -20,7 +20,7 @@ test = ["pytest"]
 # and the e2e suite runs under the shared build-tests workflow.
 e2e = [
     "pytest",
-    "hivescope>=0.5.2a1",
+    "hivescope>=0.8.0a1",
 ]
 
 [project.urls]
