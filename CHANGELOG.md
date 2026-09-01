@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.3a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a1) (2026-09-01)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a7...0.2.3a1)
+
+**Merged pull requests:**
+
+- fix\(deps\): raise floor pins to the proven HiveMind stack [\#36](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/36) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.2a7](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a7) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a6...0.2.2a7)
+
 ## [0.2.2a6](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a6) (2026-08-15)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a5...0.2.2a6)
