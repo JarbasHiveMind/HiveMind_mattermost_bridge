@@ -1,0 +1,124 @@
+# Changelog
+
+## [0.2.4a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.4a1) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a4...0.2.4a1)
+
+**Merged pull requests:**
+
+- fix: declare a session per channel so conversations do not share state [\#38](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/38) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
+## [0.2.3a4](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a4) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a3...0.2.3a4)
+
+**Merged pull requests:**
+
+- Update docker/setup-qemu-action action to v4 [\#35](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/35) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.2.3a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a3) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a2...0.2.3a3)
+
+**Merged pull requests:**
+
+- Update docker/setup-buildx-action action to v4 [\#34](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/34) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.2.3a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a2) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a1...0.2.3a2)
+
+**Merged pull requests:**
+
+- Update docker/metadata-action action to v6 [\#33](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/33) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.2.3a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a1) (2026-09-01)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a7...0.2.3a1)
+
+**Merged pull requests:**
+
+- fix\(deps\): raise floor pins to the proven HiveMind stack [\#36](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/36) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.2a7](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a7) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a6...0.2.2a7)
+
+## [0.2.2a6](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a6) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a5...0.2.2a6)
+
+**Merged pull requests:**
+
+- Update docker/login-action action to v4 [\#29](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/29) ([renovate[bot]](https://github.com/apps/renovate))
+- Update docker/build-push-action action to v7 [\#28](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/28) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.2.2a5](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a5) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a4...0.2.2a5)
+
+**Merged pull requests:**
+
+- Update actions/checkout action to v7 [\#25](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/25) ([renovate[bot]](https://github.com/apps/renovate))
+- Update python Docker tag to v3.14 [\#24](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/24) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.2.2a4](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a4) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a3...0.2.2a4)
+
+## [0.2.2a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a3) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a2...0.2.2a3)
+
+**Merged pull requests:**
+
+- ci: test, build and publish the container image [\#17](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+- fix: raise hivemind-bus-client floor to \>=1.0.13a1, drop \<1.0.0 cap [\#16](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/16) ([JarbasAl](https://github.com/JarbasAl))
+- Add Dockerfile [\#15](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/15) ([JarbasAl](https://github.com/JarbasAl))
+- docs: make the hub allow-msg whitelist step explicit [\#14](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/14) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.2a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a2) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a1...0.2.2a2)
+
+**Merged pull requests:**
+
+- docs: add AGENTS.md with per-repo agent conventions [\#22](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/22) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.2a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a1) (2026-08-14)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.1a1...0.2.2a1)
+
+**Merged pull requests:**
+
+- fix: bound handshake retries on connect so a stalled hub fails fast [\#18](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.1a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.1a1) (2026-08-14)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.0a3...0.2.1a1)
+
+**Merged pull requests:**
+
+- fix: strengthen e2e handshake password for poorman-handshake 2.0.0a2 [\#19](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/19) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.0a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.0a3) (2026-06-25)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.0a2...0.2.0a3)
+
+**Merged pull requests:**
+
+- ci\(e2e\): run HiveMind e2e via shared build-tests workflow [\#12](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/12) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.2.0a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.0a2) (2026-06-23)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/ae8beefa114d0a793086d1a53b3dbcba89138814...0.2.0a2)
+
+**Merged pull requests:**
+
+- feat: modernize to hivemind-bus-client and package for gh-automations [\#10](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/10) ([JarbasAl](https://github.com/JarbasAl))
+- docs: zero-to-hero README and docs [\#7](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/7) ([JarbasAl](https://github.com/JarbasAl))
+- Configure Renovate [\#1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/1) ([renovate[bot]](https://github.com/apps/renovate))
+
+
+
+\* *This Changelog was automatically generated by [github_changelog_generator](https://github.com/github-changelog-generator/github-changelog-generator)*

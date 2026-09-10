@@ -1,0 +1,22 @@
+name: HiveMind E2E
+
+# Boots a REAL hivemind-core hub in-process (hivescope loopback WebSocket) and
+# drives the Mattermost bridge end to end against it. The Mattermost transport
+# is mocked explicitly in the test (no importorskip).
+#
+# The 2.x hivemind-core stack resolves from the prerelease floors in the [e2e]
+# extra (hivescope>=0.5.2a1, PEP 440) — no --pre, no custom pip steps, no
+# git-branch pins.
+
+on:
+  pull_request:
+    branches: [dev, master]
+  workflow_dispatch:
+
+jobs:
+  hivemind_e2e:
+    uses: OpenVoiceOS/gh-automations/.github/workflows/build-tests.yml@dev
+    with:
+      python_versions: '["3.10", "3.11", "3.12", "3.13"]'
+      install_extras: 'e2e'
+      test_path: 'tests/e2e/'
