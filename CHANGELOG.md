@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.3a4](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a4) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a3...0.2.3a4)
+
+**Merged pull requests:**
+
+- Update docker/setup-qemu-action action to v4 [\#35](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/35) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.3a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a3) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a2...0.2.3a3)
@@ -39,20 +47,20 @@
 
 ## [0.2.2a5](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a5) (2026-08-15)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a3...0.2.2a5)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a4...0.2.2a5)
 
 **Merged pull requests:**
 
 - Update actions/checkout action to v7 [\#25](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/25) ([renovate[bot]](https://github.com/apps/renovate))
 - Update python Docker tag to v3.14 [\#24](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/24) ([renovate[bot]](https://github.com/apps/renovate))
 
-## [0.2.2a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a3) (2026-08-15)
-
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a4...0.2.2a3)
-
 ## [0.2.2a4](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a4) (2026-08-15)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a2...0.2.2a4)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a3...0.2.2a4)
+
+## [0.2.2a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.2a3) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.2a2...0.2.2a3)
 
 **Merged pull requests:**
 
