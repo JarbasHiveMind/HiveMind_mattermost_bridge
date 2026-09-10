@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.3a3](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a3) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a2...0.2.3a3)
+
+**Merged pull requests:**
+
+- Update docker/setup-buildx-action action to v4 [\#34](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/34) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.3a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a2) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a1...0.2.3a2)
