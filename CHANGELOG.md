@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.4a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.4a1) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a4...0.2.4a1)
+
+**Merged pull requests:**
+
+- fix: declare a session per channel so conversations do not share state [\#38](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/38) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.3a4](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.3a4) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a3...0.2.3a4)
