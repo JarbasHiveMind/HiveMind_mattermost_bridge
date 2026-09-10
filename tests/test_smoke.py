@@ -107,3 +107,29 @@ def test_speak_routes_back_to_mattermost():
     assert channel_id == "chan123"
     assert "@alice" in text
     assert "hi there" in text
+
+
+def test_inbound_messages_get_distinct_per_channel_sessions():
+    """Two Mattermost channels must map to two distinct Layer-1 sessions.
+
+    HIVEMIND-BRIDGE-1 §4: a client multiplexing several end-user
+    conversations over one connection maps each declared name to its own
+    session, never collapsing them into one.
+    """
+    from mattermost_bridge import HiveMindMattermostBridge
+
+    fake_client = MagicMock(name="HiveMessageBusClient")
+    fake_bot = MagicMock(name="MMostBot")
+
+    bridge = HiveMindMattermostBridge(bot=fake_bot, client=fake_client)
+    bridge.handle_mmost_message("hi from chan1", "alice", "chan1")
+    bridge.handle_mmost_message("hi from chan2", "bob", "chan2")
+
+    calls = fake_client.emit.call_args_list
+    assert len(calls) == 2
+    sid1 = calls[0][0][0].payload.context["session"]["session_id"]
+    sid2 = calls[1][0][0].payload.context["session"]["session_id"]
+
+    assert sid1 == "mattermost-chan1"
+    assert sid2 == "mattermost-chan2"
+    assert sid1 != sid2
