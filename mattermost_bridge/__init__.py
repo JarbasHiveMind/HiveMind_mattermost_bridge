@@ -123,6 +123,7 @@ class HiveMindMattermostBridge:
                 "platform": platform,
                 "channel": channel_id,
                 "user": {"mattermost_username": sender},
+                "session": {"session_id": f"mattermost-{channel_id}"},
             },
         )
         self.client.emit(HiveMessage(HiveMessageType.BUS, msg))
