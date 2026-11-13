@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.4a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.4a2) (2026-11-13)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.4a1...0.2.4a2)
+
+**Merged pull requests:**
+
+- ci: build\_tests collects the whole tests/ directory [\#43](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/43) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.4a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.4a1) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.3a4...0.2.4a1)
