@@ -1,3 +1,4 @@
+hivemind-bus-client>=1.0.16a1
 mattermostdriver
-jarbas_hive_mind>=0.8
-ovos_utils
+ovos-utils>=0.13.15a1
+ovos-bus-client>=2.9.1a1
