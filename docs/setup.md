@@ -69,7 +69,7 @@ hivemind-mattermost-bridge --mail bot@example.com --pswd bot-password \
   --key your-access-key --password your-hivemind-password
 ```
 
-HiveMind identity flags default to the values stored by `hivemind-client set-identity`.
+HiveMind identity flags default to the values stored by `hivemind-client --app mattermost-bridge set-identity`.
 
 ## Step 6 — Talk to it
 

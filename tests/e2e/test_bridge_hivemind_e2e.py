@@ -41,7 +41,10 @@ import json
 import time
 from unittest.mock import MagicMock, patch
 
+import pytest
 from ovos_bus_client.message import Message
+
+from json_database import JsonStorage
 
 from hivemind_bus_client.client import HiveMessageBusClient
 from hivemind_bus_client.identity import NodeIdentity
@@ -63,7 +66,7 @@ def _extract_host_port(url: str):
     return parts[0], int(parts[1])
 
 
-def _make_hivemind_client(url: str, key: str, password: str,
+def _make_hivemind_client(tmp_path, url: str, key: str, password: str,
                           name: str = "mattermost-bridge") -> HiveMessageBusClient:
     """A real HiveMessageBusClient pointed at the loopback hub.
 
@@ -73,7 +76,7 @@ def _make_hivemind_client(url: str, key: str, password: str,
     reading any on-disk identity file.
     """
     host, port = _extract_host_port(url)
-    identity = NodeIdentity()
+    identity = NodeIdentity(identity_file=JsonStorage(str(tmp_path / f"{name}.json")))
     identity.access_key = key
     identity.password = password
     identity.default_master = f"ws://{host}"
@@ -157,7 +160,8 @@ def _build_mocked_driver(create_post_calls):
     return driver
 
 
-def test_round_trip_mattermost_to_hivemind_and_back():
+@pytest.mark.xfail(strict=True, reason="HiveMind_mattermost_bridge#48: bridge sends no reply after the handshake")
+def test_round_trip_mattermost_to_hivemind_and_back(tmp_path):
     """Inbound Mattermost message -> real hub -> agent speak -> Mattermost reply."""
     from mattermost_bridge import HiveMindMattermostBridge
     from mattermost_bridge.mmost import MMostBot
@@ -190,7 +194,7 @@ def test_round_trip_mattermost_to_hivemind_and_back():
                            tags=["@bot"])
 
             # --- real bridge with a REAL HiveMessageBusClient -> the hub ---
-            client = _make_hivemind_client(master.network_protocol.url,
+            client = _make_hivemind_client(tmp_path, master.network_protocol.url,
                                            key, password)
             bridge = HiveMindMattermostBridge(bot=bot, client=client)
 

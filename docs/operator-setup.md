@@ -57,7 +57,7 @@ Note the **access key**, **password**, and the hub **host** / **port** (default
 WebSocket port `5678`). The bridge connects as a HiveMind *satellite* with these.
 
 You can pass them as flags (below) or store them once with
-`hivemind-client set-identity` and omit the flags.
+`hivemind-client --app mattermost-bridge set-identity` and omit the flags.
 
 A freshly registered client is denied every message type by default. Whitelist it now, or the bridge connects and never replies:
 

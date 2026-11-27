@@ -27,6 +27,7 @@ from hivemind_bus_client import (
     HiveMessageType,
     HiveMessageBusClient,
 )
+from hivemind_bus_client.identity import NodeIdentity
 from ovos_bus_client.message import Message
 from ovos_utils import create_daemon
 from ovos_utils.log import LOG
@@ -59,7 +60,8 @@ class HiveMindMattermostBridge:
                  handshake_max_retries: int = DEFAULT_HANDSHAKE_MAX_RETRIES,
                  *,
                  client: Optional[HiveMessageBusClient] = None,
-                 bot: Optional[MMostBot] = None):
+                 bot: Optional[MMostBot] = None,
+                 identity: Optional[NodeIdentity] = None):
         self.lang = lang
         self.handshake_max_retries = handshake_max_retries
         self.bot = bot or MMostBot(mail, pswd, url, tags=tags)
@@ -76,6 +78,7 @@ class HiveMindMattermostBridge:
             port=port,
             useragent=platform,
             self_signed=self_signed,
+            identity=identity or NodeIdentity(app_name="mattermost-bridge"),
         )
         self._started = False
 
