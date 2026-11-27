@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.5a1](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.5a1) (2026-11-27)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.4a2...0.2.5a1)
+
+**Merged pull requests:**
+
+- fix: the bridge connects with its own mattermost-bridge identity [\#47](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/pull/47) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.4a2](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/tree/0.2.4a2) (2026-11-13)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind_mattermost_bridge/compare/0.2.4a1...0.2.4a2)
