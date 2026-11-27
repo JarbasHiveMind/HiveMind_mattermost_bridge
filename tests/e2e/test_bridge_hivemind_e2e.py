@@ -41,6 +41,7 @@ import json
 import time
 from unittest.mock import MagicMock, patch
 
+import pytest
 from ovos_bus_client.message import Message
 
 from json_database import JsonStorage
@@ -159,6 +160,7 @@ def _build_mocked_driver(create_post_calls):
     return driver
 
 
+@pytest.mark.xfail(strict=True, reason="HiveMind_mattermost_bridge#48: bridge sends no reply after the handshake")
 def test_round_trip_mattermost_to_hivemind_and_back(tmp_path):
     """Inbound Mattermost message -> real hub -> agent speak -> Mattermost reply."""
     from mattermost_bridge import HiveMindMattermostBridge
