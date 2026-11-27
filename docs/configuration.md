@@ -1,6 +1,6 @@
 # Configuration & Credentials Reference
 
-The bridge needs Mattermost bot credentials and a HiveMind access key, passed as flags to the `hivemind-mattermost-bridge` console script (HiveMind identity flags fall back to `hivemind-client set-identity`).
+The bridge needs Mattermost bot credentials and a HiveMind access key, passed as flags to the `hivemind-mattermost-bridge` console script (HiveMind identity flags fall back to `hivemind-client --app mattermost-bridge set-identity`).
 
 ## Mattermost credentials
 

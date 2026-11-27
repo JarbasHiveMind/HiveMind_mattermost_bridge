@@ -45,9 +45,9 @@ hivemind-core allow-msg recognizer_loop:utterance mattermost-bridge
 hivemind-core allow-msg speak mattermost-bridge
 ```
 
-If you run more than one bridge on the same host, give each its own `hivemind-client set-identity` credentials. Bridges sharing an identity share a Noise session pin, and the hub treats reconnects from either as the same client, breaking encryption for both.
+If you run more than one bridge on the same host, give each its own credentials with `hivemind-client --app mattermost-bridge set-identity`. Bridges sharing an identity share a Noise session pin, and the hub treats reconnects from either as the same client, breaking encryption for both.
 
-**2. Run the bridge.** Pass Mattermost credentials and HiveMind identity as flags (HiveMind key/password/host default to the values stored by `hivemind-client set-identity`):
+**2. Run the bridge.** Pass Mattermost credentials and HiveMind identity as flags (HiveMind key/password/host default to the values stored by `hivemind-client --app mattermost-bridge set-identity`):
 
 ```bash
 hivemind-mattermost-bridge \
